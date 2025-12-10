@@ -1,0 +1,36 @@
+name: smart_app_elbakkouri
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  tflite_flutter: ^0.11.0
+  image: ^4.0.15
+  image_picker: ^1.0.4
+  firebase_core: ^4.2.1
+  firebase_auth: ^6.1.2
+  flutter_svg: ^2.0.9
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/model/
+    - assets/model/model.tflite
+    - assets/model/labels.txt
+    - assets/images/
+
+dependency_overrides:
+  tflite_flutter: ^0.11.0
+  image: ^4.0.15

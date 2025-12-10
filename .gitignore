@@ -1,0 +1,86 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+/coverage/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# TensorFlow Lite build files
+/windows/runner/Debug/
+/windows/runner/Release/
+/windows/runner/x64/
+/windows/runner/x86/
+
+# TensorFlow Lite downloaded files
+/windows/flutter/ephemeral/.plugin_symlinks/
+/windows/flutter/ephemeral/cpp_client_wrapper/
+
+# Build directories
+**/build/
+**/build_web_compilers/
+
+# VS Code
+.vscode/
+
+# Local development
+*.iml
+*.ipr
+*.iws
+
+# Logs
+*.log
+
+# Local configuration files
+*.local
+
+# Misc
+*.swp
+*.swo
+*~
+
+# Ignore all tensorflow files in windows directory
+windows/runner/Debug/tensorflow-2.19.1/
+
+# Ignore local env files
+.env
+.env.*
+!.env.example

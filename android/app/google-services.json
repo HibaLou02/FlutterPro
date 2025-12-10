@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "114418983640",
+    "project_id": "smartapp-bc0df",
+    "storage_bucket": "smartapp-bc0df.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:114418983640:android:ecf89571a8d758e6deedad",
+        "android_client_info": {
+          "package_name": "elbakkouri.smart_app_elbakkouri"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA6xRBmbKAFsBS75iRohvfk9N9zUSDnlQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
