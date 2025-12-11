@@ -16,39 +16,56 @@ class FruitClassifier {
 
   Future<void> load() async {
     try {
-      _interpreter = await Interpreter.fromAsset('assets/model/model.tflite');
+      print('Début du chargement du modèle...');
+
+      try {
+        print('Tentative de chargement du modèle...');
+        _interpreter = await Interpreter.fromAsset('assets/model/model.tflite',
+            options: InterpreterOptions()..addDelegate(GpuDelegateV2()));
+        print('✅ Modèle chargé avec succès');
+      } catch (e) {
+        print('❌ Erreur lors du chargement du modèle: $e');
+        rethrow;
+      }
 
       // Get input tensors and verify we have at least one
       final inputTensors = _interpreter.getInputTensors();
+      print('Tenseurs d\'entrée détectés: $inputTensors');
+
       if (inputTensors.isEmpty) {
-        throw Exception('No input tensors found in the model');
+        throw Exception('Aucun tenseur d\'entrée trouvé dans le modèle');
       }
       _inputTensor = inputTensors.first;
 
       // Get output tensors and verify we have at least one
       final outputTensors = _interpreter.getOutputTensors();
+      print('Tenseurs de sortie détectés: $outputTensors');
+
       if (outputTensors.isEmpty) {
-        throw Exception('No output tensors found in the model');
+        throw Exception('Aucun tenseur de sortie trouvé dans le modèle');
       }
       _outputTensor = outputTensors.first;
 
       // Load labels
       try {
+        print('Chargement des labels...');
         final labelsFile =
             await rootBundle.loadString('assets/model/labels.txt');
+        print('Labels chargés: $labelsFile');
+
         _labels = labelsFile
             .split('\n')
             .map((e) => e.trim())
             .where((e) => e.isNotEmpty)
             .toList();
+
+        print('${_labels.length} labels chargés avec succès');
       } catch (e) {
-        throw Exception('Failed to load labels: $e');
+        throw Exception('Échec du chargement des labels: $e');
       }
     } catch (e) {
       // Clean up resources if initialization fails
-      if (_interpreter != null) {
-        _interpreter.close();
-      }
+      _interpreter.close();
       rethrow; // Re-throw to be handled by the UI
     }
   }

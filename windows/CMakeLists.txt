@@ -6,6 +6,9 @@ project(smart_app_elbakkouri LANGUAGES CXX)
 # the on-disk name of your application.
 set(BINARY_NAME "smart_app_elbakkouri")
 
+# Add blobs directory for TensorFlow Lite DLL
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/blobs)
+
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent
 # versions of CMake.
 cmake_policy(VERSION 3.14...3.25)
@@ -23,6 +26,14 @@ else()
       "Debug" "Profile" "Release")
   endif()
 endif()
+
+# Copy TensorFlow Lite DLL to output directory
+add_custom_command(TARGET ${BINARY_NAME} POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different
+  ${CMAKE_CURRENT_SOURCE_DIR}/blobs/libtensorflowlite_c-win.dll
+  $<TARGET_FILE_DIR:${BINARY_NAME}>/blobs/
+  )
+
 # Define settings for the Profile build mode.
 set(CMAKE_EXE_LINKER_FLAGS_PROFILE "${CMAKE_EXE_LINKER_FLAGS_RELEASE}")
 set(CMAKE_SHARED_LINKER_FLAGS_PROFILE "${CMAKE_SHARED_LINKER_FLAGS_RELEASE}")

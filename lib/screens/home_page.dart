@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'login_page.dart';
+import 'fruitsclassifier_page.dart';
+import 'chatbot_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -156,6 +157,32 @@ class _HomePageState extends State<HomePage> {
               onTap: () {
                 Navigator.pop(context);
                 // Navigate to profile page
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.photo_camera, color: Colors.teal),
+              title: const Text('Fruits Classifier'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const FruitsClassifierPage(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.chat, color: Colors.teal),
+              title: const Text('Chatbot'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ChatbotPage(),
+                  ),
+                );
               },
             ),
             ListTile(
