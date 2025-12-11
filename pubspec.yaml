@@ -19,6 +19,12 @@ dependencies:
   flutter_svg: ^2.0.9
   google_fonts: ^6.1.0
   tflite_flutter_helper: ^0.2.1
+  http: ^1.1.0  # Pour les appels API
+  flutter_spinkit: ^5.2.0  # Pour les indicateurs de chargement
+  flutter_dotenv: ^5.1.0  # Pour gérer les variables d'environnement
+  path_provider: ^2.1.2  # Pour accéder aux dossiers de l'appareil
+  async: ^2.11.0  # Pour gérer les opérations asynchrones
+  collection: ^1.18.0  # Pour les collections avancées
 dev_dependencies:
   flutter_test:
     sdk: flutter
